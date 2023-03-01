@@ -17,11 +17,23 @@ func main() {
 	myName := "Md. Ariful Islam" // String
 	const COUNTRY = "Bangladesh"
 
-	fmt.Printf("%v is working at \"Brain Station 23 Ltd.\"", myName)
+	var domainOne string
+	var domainTwo string
+	var workPlace string
+
+	fmt.Print("Enter to two domain names of your expertise: ")
+	// Multiple Input at a time
+	fmt.Scanf("%v %v", &domainOne, &domainTwo)
+
+	fmt.Print("Enter the name of your workplace: ")
+	// Single Input
+	fmt.Scan(&workPlace)
+
+	fmt.Printf("%v is working at \"%v\"", myName, workPlace)
 	fmt.Printf("\nHe has got %v\\%v in BSc.\n", myCGPA, totalCGPA)
 	fmt.Println("He have expertise in \n - Development and \n - Automation-QA \nboth side.")
-	fmt.Println("He have published research \nin \t Blockchain.")
-	fmt.Println("and \t IoT.")
-	fmt.Printf("He is from %v \n", COUNTRY)
+	fmt.Printf("\nHe have published research \nin \t %v", domainOne)
+	fmt.Printf("\nand \t %v.", domainTwo)
+	fmt.Printf("\nHe is from %v \n", COUNTRY)
 	fmt.Println(testBool)
 }
