@@ -40,6 +40,20 @@ func assignmentOperator(numOne int, numTwo int) {
 	fmt.Printf("Assignment Operator (-) Value: %v \n", numOne)
 }
 
+func unaryOperator(numOne int, numTwo int) {
+	numOne++
+	fmt.Printf("After Post Increment of 1st Input: %v \n", numOne)
+	numTwo--
+	fmt.Printf("After Post Decrement of 2st Input: %v \n", numTwo)
+}
+
+func relationalOperator(numOne int, numTwo int) {
+	fmt.Printf("Is 1st input less than 2nd input: %v \n", numOne < numTwo)
+	fmt.Printf("Is 1st input greater than 2nd input: %v \n", numOne > numTwo)
+	fmt.Printf("Is 1st input equal to 2nd input: %v \n", numOne == numTwo)
+	fmt.Printf("Is 1st input not-equal to 2nd input: %v \n", numOne != numTwo)
+}
+
 func main() {
 	var numOne, numTwo int
 	fmt.Printf("Input Number 1: ")
@@ -47,6 +61,8 @@ func main() {
 	fmt.Printf("Input Number 2: ")
 	fmt.Scan(&numTwo)
 
+	relationalOperator(numOne, numTwo)
 	arithmeticOperator(numOne, numTwo)
 	assignmentOperator(numOne, numTwo)
+	unaryOperator(numOne, numTwo)
 }
