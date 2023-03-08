@@ -33,6 +33,13 @@ func arithmeticOperator(numOne int, numTwo int) {
 	fmt.Printf("Remainder of (%v ÷ %v) is %v\n", numOne, numTwo, result)
 }
 
+func assignmentOperator(numOne int, numTwo int) {
+	numOne += numTwo // numOne = numOne + numTwo
+	fmt.Printf("Assignment Operator (+) Value: %v \n", numOne)
+	numOne -= numTwo // numOne = numOne - numTwo
+	fmt.Printf("Assignment Operator (-) Value: %v \n", numOne)
+}
+
 func main() {
 	var numOne, numTwo int
 	fmt.Printf("Input Number 1: ")
@@ -41,4 +48,5 @@ func main() {
 	fmt.Scan(&numTwo)
 
 	arithmeticOperator(numOne, numTwo)
+	assignmentOperator(numOne, numTwo)
 }
