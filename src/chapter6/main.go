@@ -15,10 +15,12 @@ func showMyArray() {
 		"India",
 		"Japan",
 	}
-
-	for i := 0; i < 3; i++ {
-		fmt.Println(countryList[i])
+	// The Go compiler won't allow you to create variables that you never use.
+	// A single _ (underscore) is used to tell the compiler that we don't need this.
+	for _, value := range countryList {
+		fmt.Println(value)
 	}
+	fmt.Printf("The array length is: %v", len(countryList))
 }
 
 func assignMyArray() {
