@@ -17,8 +17,8 @@ func main() {
 	switch inputNum {
 	case 0:
 		fmt.Println("Zero for switch trial")
-	case 1:
-		fmt.Println("Input 1 is engaged")
+	case 1, 2, 3, 4, 5, 6, 7, 8, 9:
+		fmt.Println("The one-digit number are engaged")
 	default:
 		fmt.Println("Executing switch default...")
 		if inputNum%2 != 0 {
