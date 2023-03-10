@@ -20,7 +20,7 @@ func showMyArray() {
 	for _, value := range countryList {
 		fmt.Println(value)
 	}
-	fmt.Printf("The array length is: %v", len(countryList))
+	fmt.Printf("The array length is: %v \n", len(countryList))
 }
 
 func assignMyArray() {
@@ -45,7 +45,7 @@ func assignMySlice() {
 	// 2nd parameter is fixing the current length of slice associated array
 	// 3rd parameter is fixing the max capacity of slice associated array
 	deviceSlice := make([]string, 0, 6)
-	copySlice := make([]string, 5, 10)
+	copySlice := make([]string, 5)
 	// ----------- R&D -----------
 	fmt.Println("==>PHASE_1: Current Length of deviceSlice: ", len(deviceSlice))
 	fmt.Printf("==>PHASE_1: Capacity of deviceSlice: %v\n\n", cap(deviceSlice))
@@ -84,8 +84,45 @@ func assignMySlice() {
 	fmt.Printf("==>PHASE_4: Capacity of copySlice: %v\n\n", cap(copySlice))
 }
 
+func assignMyMap() {
+	// maps have to be initialized before they can be used.
+	gasMap := make(map[string]string)
+	gasMap["H"] = "Hydrogen"
+	gasMap["He"] = "Helium"
+	gasMap["Li"] = "Lithium"
+	gasMap["Be"] = "Beryllium"
+	gasMap["B"] = "Boron"
+	gasMap["C"] = "Carbon"
+	gasMap["N"] = "Nitrogen"
+	gasMap["O"] = "Oxygen"
+	gasMap["F"] = "Fluorine"
+	gasMap["Ne"] = "Neon"
+	fmt.Println(gasMap["Li"])
+	// If key not found 1st value will be BLANK and 2nd value will be FALSE
+	content, existence := gasMap["H"]
+	fmt.Println(content, existence)
+
+	gasDictionary := map[string]map[string]string{
+		"H": map[string]string{
+			"name":  "Hydrogen",
+			"state": "gas",
+		},
+		"C": map[string]string{
+			"name":  "Carbon",
+			"state": "solid",
+		},
+	}
+
+	if el, ok := gasDictionary["C"]; ok {
+		fmt.Println("==> Gas Dictionary <==")
+		fmt.Println("GAS NAME: ", el["name"])
+		fmt.Println("GAS FORM:", el["state"])
+	}
+}
+
 func main() {
-	// showMyArray()
-	// assignMyArray()
+	showMyArray()
+	assignMyArray()
 	assignMySlice()
+	assignMyMap()
 }
