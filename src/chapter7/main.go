@@ -37,6 +37,15 @@ func makeClosure() func() uint {
 	}
 }
 
+func factorialRecursion(x uint) uint {
+	if x == 0 {
+		fmt.Println("Bottom Found!")
+		return 1
+	}
+	fmt.Println("Recursion....")
+	return x * factorialRecursion(x-1)
+}
+
 func main() {
 	x, y := multiReturn()
 	fmt.Printf("Return value 1: %v and return value 2: %v \n", x, y)
@@ -57,4 +66,7 @@ func main() {
 	fmt.Println("Closure Test2: ", nextEven()) // 0
 	fmt.Println("Closure Test2: ", nextEven()) // 2
 	fmt.Println("Closure Test2: ", nextEven()) // 4
+
+	fmt.Println("Recursion Test: ", factorialRecursion(5))
+
 }
