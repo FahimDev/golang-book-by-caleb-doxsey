@@ -46,6 +46,40 @@ func factorialRecursion(x uint) uint {
 	return x * factorialRecursion(x-1)
 }
 
+func deferTest() {
+	// defer works more like LIFO
+	for i := 0; i < 4; i++ {
+		defer fmt.Println(i)
+	}
+}
+
+func deferTest1() (i int) {
+	defer func() { i++ }()
+	return 1
+}
+
+func recoverTest() {
+	defer func() {
+		if r := recover(); r != nil {
+			// Recover function is getting the value whatever Panic function is returning...
+			fmt.Println("Recovered in recoverTest", r)
+		}
+	}()
+	fmt.Println("Calling panicTest.")
+	panicTest(0)
+	fmt.Println("Returned normally from panicTest.")
+}
+
+func panicTest(i int) {
+	if i > 3 {
+		fmt.Println("Panicking!")
+		panic(fmt.Sprintf("%v <#", i))
+	}
+	defer fmt.Println("Defer in panicTest", i) // LIFO
+	fmt.Println("Printing in panicTest", i)
+	panicTest(i + 1)
+}
+
 func main() {
 	x, y := multiReturn()
 	fmt.Printf("Return value 1: %v and return value 2: %v \n", x, y)
@@ -68,5 +102,15 @@ func main() {
 	fmt.Println("Closure Test2: ", nextEven()) // 4
 
 	fmt.Println("Recursion Test: ", factorialRecursion(5))
+
+	fmt.Println("Defer Test Start")
+	fmt.Println("Defer Test 0")
+	deferTest()
+	fmt.Println("Defer Test 1")
+	fmt.Println("Defer: ", deferTest1())
+	fmt.Println("Defer Test End")
+
+	recoverTest() // https://go.dev/blog/defer-panic-and-recover
+	fmt.Println("Returned normally from recoverTest.")
 
 }
